@@ -4,7 +4,339 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Servicios - NetSecure Technology</title>
-    <link rel="stylesheet" href="../assets/css/styles.css">
+    <style>
+      /* Reset de márgenes y padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Fuentes y colores */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #F7F7F7;
+    color: #333;
+}
+
+/* Estilo de la cabecera */
+header {
+    background-color: #F0A8D0;
+    padding: 20px 0;
+    text-align: center;
+}
+
+header .logo h1 {
+    color: #fff;
+    font-size: 2.5em;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.1em;
+    text-transform: uppercase;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #FF69B4; /* Color rosa más fuerte */
+}
+
+/* Sección de Servicios */
+.servicios {
+    background-color: #FFFFFF;
+    padding: 50px 20px;
+}
+
+.servicios .contenedor {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.servicios h3.titulo {
+    color: #F0A8D0;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.servicios .descripcion {
+    color: #555;
+    font-size: 1.1em;
+    margin-bottom: 40px;
+}
+
+.servicios .subtitulo {
+    color: #F0A8D0;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.paquetes {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.paquete {
+    background-color: #FFEBD4;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 30%;
+    text-align: left;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.paquete:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.paquete h5 {
+    color: #F0A8D0;
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+.paquete p {
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.paquete ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 15px;
+}
+
+.paquete ul li {
+    margin-bottom: 8px;
+}
+
+.paquete .precio {
+    color: #F0A8D0;
+    font-size: 1.3em;
+    margin-bottom: 20px;
+}
+
+.paquete .btn {
+    background-color: #F0A8D0;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1.1em;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.paquete .btn:hover {
+    background-color: #FF69B4;
+}
+
+/* Footer */
+footer {
+    background-color: #F7B5CA;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 50px;
+}
+
+footer p {
+    color: #333;
+    font-size: 1em;
+}
+
+/* Paleta de colores */
+:root {
+    --primary-color: #440A67;
+    --secondary-color: #93329E;
+    --tertiary-color: #B4AEE8;
+    --accent-color: #FFE3FE;
+}
+
+/* Estilos Generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Encabezado */
+header {
+    background-color: var(--primary-color);
+    padding: 20px;
+    color: white;
+    text-align: center;
+}
+
+header .logo h1 {
+    margin: 0;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: var(--accent-color);
+}
+
+/* Banner Principal */
+.banner {
+    background-color: var(--secondary-color);
+    color: white;
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.banner h2 {
+    font-size: 36px;
+    margin: 0;
+}
+
+.banner p {
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+.cta-button {
+    background-color: var(--tertiary-color);
+    padding: 10px 20px;
+    text-decoration: none;
+    color: black;
+    border-radius: 5px;
+}
+
+.cta-button:hover {
+    background-color: var(--accent-color);
+}
+
+/* Servicios */
+.servicios {
+    display: flex;
+    justify-content: space-around;
+    padding: 50px 20px;
+    background-color: #f4f4f4;
+}
+
+.servicio {
+    text-align: center;
+    width: 30%;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.servicio h4 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+/* Testimonios */
+.testimonios {
+    background-color: var(--tertiary-color);
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.testimonio {
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+/* Footer */
+footer {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+
+/* Sección de Contacto */
+.contacto {
+    background-color: #FFE3FE;
+    padding: 60px 20px;
+}
+
+.contacto .titulo {
+    font-size: 2.5rem;
+    color: #440A67;
+    margin-bottom: 20px;
+}
+
+.contacto .descripcion {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.contacto form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contacto form label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1rem;
+}
+
+.contacto form input, 
+.contacto form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.contacto form button {
+    background-color: #440A67;
+    color: white;
+    padding: 12px 24px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.contacto form button:hover {
+    background-color: #93329E;
+}  
+        
+    </style>
 </head>
 <body>
     <header>
