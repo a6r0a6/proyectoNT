@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Servicios - NetSecure Technology</title>
+    <title>Registro - NetSecure Technology</title>
     <style>
         /* Reset de márgenes y padding */
         * {
@@ -55,113 +55,7 @@
             color: #FF69B4; /* Color rosa más fuerte */
         }
 
-        /* Sección de Servicios */
-        .servicios {
-            background-color: #FFFFFF;
-            padding: 50px 20px;
-        }
-
-        .servicios .contenedor {
-            width: 80%;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .servicios h3.titulo {
-            color: #F0A8D0;
-            font-size: 2.5em;
-            margin-bottom: 20px;
-        }
-
-        .servicios .descripcion {
-            color: #555;
-            font-size: 1.1em;
-            margin-bottom: 40px;
-        }
-
-        .servicios .subtitulo {
-            color: #F0A8D0;
-            font-size: 2em;
-            margin-bottom: 20px;
-        }
-
-        .paquetes {
-            display: flex;
-            justify-content: space-between;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .paquete {
-            background-color: #FFEBD4;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            width: 30%;
-            text-align: left;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .paquete:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-        }
-
-        .paquete h5 {
-            color: #F0A8D0;
-            font-size: 1.5em;
-            margin-bottom: 15px;
-        }
-
-        .paquete p {
-            color: #555;
-            margin-bottom: 15px;
-        }
-
-        .paquete ul {
-            list-style: none;
-            padding: 0;
-            margin-bottom: 15px;
-        }
-
-        .paquete ul li {
-            margin-bottom: 8px;
-        }
-
-        .paquete .precio {
-            color: #F0A8D0;
-            font-size: 1.3em;
-            margin-bottom: 20px;
-        }
-
-        .paquete .btn {
-            background-color: #F0A8D0;
-            border: none;
-            color: white;
-            padding: 10px 20px;
-            font-size: 1.1em;
-            cursor: pointer;
-            border-radius: 4px;
-            transition: background-color 0.3s;
-        }
-
-        .paquete .btn:hover {
-            background-color: #FF69B4;
-        }
-
-        /* Footer */
-        footer {
-            background-color: #F7B5CA;
-            text-align: center;
-            padding: 15px 0;
-            margin-top: 50px;
-        }
-
-        footer p {
-            color: #333;
-            font-size: 1em;
-        }
-
+        /* Sección de Registro */
         .registro {
             background-color: #F0A8D0;
             padding: 30px;
@@ -202,12 +96,23 @@
             background-color: #93329E;
         }
 
-        .detalle-paquete {
+        /* Método de Pago */
+        .metodo-pago {
+            display: none;
+            margin-top: 20px;
+            padding: 10px;
             background-color: #FFEBD4;
-            padding: 20px;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin-top: 30px;
+        }
+
+        .metodo-pago input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
         }
 
     </style>
@@ -245,27 +150,58 @@
                 <option value="empresarial">Paquete Empresarial - $7,000 MXN</option>
             </select>
 
+            <label for="metodo-pago">Método de Pago:</label>
+            <select id="metodo-pago" name="metodo-pago" required onchange="mostrarCamposPago()">
+                <option value="">Seleccionar...</option>
+                <option value="tarjeta">Tarjeta</option>
+                <option value="efectivo">Efectivo</option>
+            </select>
+
+            <!-- Sección de Pago con Tarjeta -->
+            <div class="metodo-pago" id="tarjeta-pago">
+                <h4>Datos de la Tarjeta</h4>
+                <label for="numero-tarjeta">Número de Tarjeta:</label>
+                <input type="text" id="numero-tarjeta" name="numero-tarjeta" placeholder="1234 5678 9876 5432" required>
+
+                <label for="fecha-vencimiento">Fecha de Vencimiento:</label>
+                <input type="month" id="fecha-vencimiento" name="fecha-vencimiento" required>
+
+                <label for="codigo-seguridad">Código de Seguridad:</label>
+                <input type="text" id="codigo-seguridad" name="codigo-seguridad" placeholder="123" required>
+            </div>
+
+            <!-- Sección de Pago en Efectivo -->
+            <div class="metodo-pago" id="efectivo-pago">
+                <h4>Instrucciones de Pago</h4>
+                <p>Seleccionaste pagar en efectivo. Dirígete a nuestra tienda para realizar el pago en persona.</p>
+            </div>
+
             <button type="submit">Registrarse</button>
         </form>
-    </section>
-
-    <!-- Detalle de Paquete Contratado -->
-    <section class="detalle-paquete">
-        <h3>Paquete Contratado</h3>
-        <p><strong>Paquete:</strong> Paquete Profesional</p>
-        <p><strong>Precio:</strong> $3,500 MXN al mes</p>
-        <p><strong>Características:</strong></p>
-        <ul>
-            <li>Almacenamiento en la nube de hasta 200 GB</li>
-            <li>Monitoreo avanzado de red</li>
-            <li>Soporte técnico 24/7</li>
-            <li>Backup mensual de datos</li>
-        </ul>
     </section>
 
     <footer>
         <p>&copy; 2025 NetSecure Technology. Todos los derechos reservados.</p>
     </footer>
+
+    <script>
+        // Función para mostrar los campos del método de pago seleccionado
+        function mostrarCamposPago() {
+            const metodoPago = document.getElementById("metodo-pago").value;
+            const tarjetaPago = document.getElementById("tarjeta-pago");
+            const efectivoPago = document.getElementById("efectivo-pago");
+
+            // Ocultar todas las opciones de pago
+            tarjetaPago.style.display = 'none';
+            efectivoPago.style.display = 'none';
+
+            // Mostrar solo el método de pago seleccionado
+            if (metodoPago === "tarjeta") {
+                tarjetaPago.style.display = 'block';
+            } else if (metodoPago === "efectivo") {
+                efectivoPago.style.display = 'block';
+            }
+        }
+    </script>
 </body>
 </html>
-
