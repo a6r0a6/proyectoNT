@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuración - NetSecure Technology</title>
+    <style>
+        /* Reset de márgenes y padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Fuentes y colores */
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: #F7F7F7;
+            color: #333;
+        }
+
+        /* Estilo de la cabecera */
+        header {
+            background-color: #F0A8D0;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        header .logo h1 {
+            color: #fff;
+            font-size: 2.5em;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 10px;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 1.1em;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #FF69B4; /* Color rosa más fuerte */
+        }
+
+        /* Sección de Configuración */
+        .configuracion {
+            background-color: #F0A8D0;
+            padding: 30px;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .configuracion form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .configuracion form input,
+        .configuracion form select {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .configuracion form button {
+            background-color: #440A67;
+            color: white;
+            padding: 12px 24px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .configuracion form button:hover {
+            background-color: #93329E;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>NetSecure Technology</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="acerca.html">Acerca de</a></li>
+                <li><a href="clientes.html">Clientes</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="registro.html">Registro</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Configuración de la Cuenta -->
+    <section class="configuracion">
+        <h3>Configura tu Cuenta</h3>
+        <form action="confirmacion.html" method="POST">
+            <label for="paquete">Seleccionar Paquete:</label>
+            <select id="paquete" name="paquete" required>
+                <option value="basico">Paquete Básico - $1,500 MXN</option>
+                <option value="profesional">Paquete Profesional - $3,500 MXN</option>
+                <option value="empresarial">Paquete Empresarial - $7,000 MXN</option>
+            </select>
+
+            <label for="metodo-pago">Método de Pago:</label>
+            <select id="metodo-pago" name="metodo-pago" required onchange="mostrarCamposPago()">
+                <option value="">Seleccionar...</option>
+                <option value="tarjeta">Tarjeta</option>
+                <option value="efectivo">Efectivo</option>
+            </select>
+
+            <!-- Sección de Pago con Tarjeta -->
+            <div class="metodo-pago" id="tarjeta-pago">
+                <h4>Datos de la Tarjeta</h4>
+                <label for="numero-tarjeta">Número de Tarjeta:</label>
+                <input type="text" id="numero-tarjeta" name="numero-tarjeta" placeholder="1234 5678 9876 5432" required>
+
+                <label for="fecha-vencimiento">Fecha de Vencimiento:</label>
+                <input type="month" id="fecha-vencimiento" name="fecha-vencimiento" required>
+
+                <label for="codigo-seguridad">Código de Seguridad:</label>
+                <input type="text" id="codigo-seguridad" name="codigo-seguridad" placeholder="123" required>
+            </div>
+
+            <!-- Sección de Pago en Efectivo -->
+            <div class="metodo-pago" id="efectivo-pago">
+                <h4>Instrucciones de Pago</h4>
+                <p>Seleccionaste pagar en efectivo. Dirígete a nuestra tienda para realizar el pago en persona.</p>
+            </div>
+
+            <button type="submit">Confirmar Selección</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 NetSecure Technology. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        // Función para mostrar los campos del método de pago seleccionado
+        function mostrarCamposPago() {
+            const metodoPago = document.getElementById("metodo-pago").value;
+            const tarjetaPago = document.getElementById("tarjeta-pago");
+            const efectivoPago = document.getElementById("efectivo-pago");
+
+            // Ocultar todas las opciones de pago
+            tarjetaPago.style.display = 'none';
+            efectivoPago.style.display = 'none';
+
+            // Mostrar solo el método de pago seleccionado
+            if (metodoPago === "tarjeta") {
+                tarjetaPago.style.display = 'block';
+            } else if (metodoPago === "efectivo") {
+                efectivoPago.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
